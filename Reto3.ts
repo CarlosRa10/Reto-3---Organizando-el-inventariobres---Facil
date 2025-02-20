@@ -1,3 +1,4 @@
+export{}
 interface Toy {
   name: string;
   quantity: number;
@@ -15,7 +16,7 @@ type OrganizedInventory = {
 
 function organizeInventory(inventory: Inventory): OrganizedInventory {
   return inventory.reduce((acc, curr) => {
-    acc[curr.category] ??= {}; // Inicializa la categoría si es null o undefined
+    acc[curr.category] ??= {}; // Inicializa la categoría si es null o undefined -?? Nullish-
     acc[curr.category][curr.name] = (acc[curr.category][curr.name] ?? 0) + curr.quantity; // Suma la cantidad
     return acc;
   }, {} as OrganizedInventory); // Asegura que el acumulador es del tipo OrganizedInventory
